@@ -1,0 +1,51 @@
+#include <iostream>
+
+using namespace std;
+
+class L
+{
+    int x;
+public:
+
+    L()
+    {
+        x = 0;
+    }
+
+    ~L() {};
+
+    L(int _x)
+    {
+        x = _x;
+    }
+
+    L operator ^ (int _y)
+    {
+        L temp(1);
+
+        if (_y == 0)
+            return 1;
+        for (int i = 0; i < _y; i++)
+        {
+            temp.x *= this->x;
+        }
+
+        return temp;
+    }
+
+    void Print()
+    {
+        cout << x << "\n";
+    }
+};
+
+int main()
+{
+    L x(2);
+
+    x = x ^ 0;
+
+    x.Print();
+
+    return 0;
+}
